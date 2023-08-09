@@ -26,7 +26,9 @@
 		<security:custom-filter ref="authenticationTokenProcessingFilter" before="FORM_LOGIN_FILTER"/>
 		<security:custom-filter ref="sessionTokenProcessingFilter" after="FORM_LOGIN_FILTER"/>
 		<security:custom-filter ref="keycloakFilter" before="BASIC_AUTH_FILTER"/>
-		<security:custom-filter ref="googleOpenIdFilter" after="BASIC_AUTH_FILTER"/>
+		<!-- need to comment because of "order" in log that didn't allowed the applciation to start TODO: solve issue and uncomment -->
+		<!-- <security:custom-filter ref="googleOpenIdFilter" after="BASIC_AUTH_FILTER"/> -->
+		<security:custom-filter ref="oracleIAMOpenIdFilter" after="BASIC_AUTH_FILTER"/>
 		<security:anonymous />
 	</security:http>
 
@@ -45,6 +47,7 @@
 	<context:annotation-config/>
 
 	<bean id="googleSecurityConfiguration" class="it.geosolutions.geostore.services.rest.security.oauth2.google.OAuthGoogleSecurityConfiguration"/>
+	<bean id="oracleIAMSecurityConfiguration" class="it.geosolutions.geostore.services.rest.security.oauth2.oracleIAM.OAuthOracleIAMSecurityConfiguration"/>
 
 	<!-- END OAuth2 beans-->
 

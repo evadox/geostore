@@ -103,6 +103,10 @@
 		  class="it.geosolutions.geostore.services.rest.security.oauth2.GoogleLoginService">
 		<constructor-arg ref="idpLoginRest"/>
 	</bean>
+	<bean id="oracleIAMLoginService"
+		  class="it.geosolutions.geostore.services.rest.security.oauth2.OracleIAMLoginService">
+		<constructor-arg ref="idpLoginRest"/>
+	</bean>
 
 	<bean id="keycloakLoginService"
 		  class="it.geosolutions.geostore.services.rest.security.keycloak.KeyCloakLoginService">
